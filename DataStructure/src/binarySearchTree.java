@@ -13,9 +13,9 @@ public class binarySearchTree {
  {
    // If the tree is empty 
    if(root == null)
-	{
-	  root = new Node(data);
-	}
+   {
+	   root = new Node(data);
+   }
    // Condition to enter in the left subtree 
    else if(data <= root.data)
 	{
