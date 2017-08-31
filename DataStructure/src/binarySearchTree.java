@@ -2,19 +2,19 @@
 
 public class binarySearchTree {
 
- Node root = null;
+ treeNode root = null;
  public void insert(int data)
     {
         root = Insert(root, data);
     }
  	
  
- public Node Insert(Node root, int data)
+ public treeNode Insert(treeNode root, int data)
  {
    // If the tree is empty 
    if(root == null)
    {
-	   root = new Node(data);
+	   root = new treeNode(data);
    }
    // Condition to enter in the left subtree 
    else if(data <= root.data)
@@ -34,7 +34,7 @@ public class binarySearchTree {
    Search(root, data);
  }
  
- public Node Search(Node root, int data)
+ public treeNode Search(treeNode root, int data)
  {
      // If the root is empty or the searched data is at root
      if (root == null || root.data == data)
@@ -63,7 +63,7 @@ public class binarySearchTree {
 	 
  }*/
  
- public int height(Node root)
+ public int height(treeNode root)
  {
    if(root == null)
     return 0;
@@ -82,7 +82,7 @@ public class binarySearchTree {
  }
  
  // Traversing the tree from Root, Left the Right
- public void Preorder(Node node)
+ public void Preorder(treeNode node)
  {
   if(node == null)
    return;
@@ -98,7 +98,7 @@ public class binarySearchTree {
  }
  
  // Traversing in order Left, Right and  then Data  
- public void Postorder(Node node)
+ public void Postorder(treeNode node)
  {
    if(node == null)
     return;
@@ -114,7 +114,7 @@ public class binarySearchTree {
  }
 
  // Traversing the tree in a sorted manner
- public void Inorder(Node node)
+ public void Inorder(treeNode node)
  {
   if(node == null)
    return;
@@ -140,7 +140,7 @@ public class binarySearchTree {
  
  
  
- public boolean binarySearchTreeUtil(Node root, int minValue, int maxValue)
+ public boolean binarySearchTreeUtil(treeNode root, int minValue, int maxValue)
  {
    if(root == null)
      return true;
@@ -169,7 +169,7 @@ public class binarySearchTree {
    root = Delete(root, data);
  }
  
- public Node Delete(Node root, int data)
+ public treeNode Delete(treeNode root, int data)
  {
    if(root == null) 
     return root;
@@ -214,7 +214,7 @@ public class binarySearchTree {
 	return root;
  }
  
- int findMin(Node root)
+ int findMin(treeNode root)
  {
      int minv = root.data;
      while (root.left != null)
