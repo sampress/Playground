@@ -1,5 +1,5 @@
 
-public class insertionSort implements ISort {
+public class InsertionSort implements ISort {
 
  public void Sort(int[] array)
   {

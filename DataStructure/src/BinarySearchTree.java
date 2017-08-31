@@ -1,20 +1,20 @@
 
 
-public class binarySearchTree {
+public class BinarySearchTree {
 
- treeNode root = null;
+ TreeNode root = null;
  public void insert(int data)
     {
         root = Insert(root, data);
     }
  	
  
- public treeNode Insert(treeNode root, int data)
+ public TreeNode Insert(TreeNode root, int data)
  {
    // If the tree is empty 
    if(root == null)
    {
-	   root = new treeNode(data);
+	   root = new TreeNode(data);
    }
    // Condition to enter in the left subtree 
    else if(data <= root.data)
@@ -34,7 +34,7 @@ public class binarySearchTree {
    Search(root, data);
  }
  
- public treeNode Search(treeNode root, int data)
+ public TreeNode Search(TreeNode root, int data)
  {
      // If the root is empty or the searched data is at root
      if (root == null || root.data == data)
@@ -63,7 +63,7 @@ public class binarySearchTree {
 	 
  }*/
  
- public int height(treeNode root)
+ public int height(TreeNode root)
  {
    if(root == null)
     return 0;
@@ -82,7 +82,7 @@ public class binarySearchTree {
  }
  
  // Traversing the tree from Root, Left the Right
- public void Preorder(treeNode node)
+ public void Preorder(TreeNode node)
  {
   if(node == null)
    return;
@@ -98,7 +98,7 @@ public class binarySearchTree {
  }
  
  // Traversing in order Left, Right and  then Data  
- public void Postorder(treeNode node)
+ public void Postorder(TreeNode node)
  {
    if(node == null)
     return;
@@ -114,7 +114,7 @@ public class binarySearchTree {
  }
 
  // Traversing the tree in a sorted manner
- public void Inorder(treeNode node)
+ public void Inorder(TreeNode node)
  {
   if(node == null)
    return;
@@ -140,7 +140,7 @@ public class binarySearchTree {
  
  
  
- public boolean binarySearchTreeUtil(treeNode root, int minValue, int maxValue)
+ public boolean binarySearchTreeUtil(TreeNode root, int minValue, int maxValue)
  {
    if(root == null)
      return true;
@@ -169,7 +169,7 @@ public class binarySearchTree {
    root = Delete(root, data);
  }
  
- public treeNode Delete(treeNode root, int data)
+ public TreeNode Delete(TreeNode root, int data)
  {
    if(root == null) 
     return root;
@@ -214,7 +214,7 @@ public class binarySearchTree {
 	return root;
  }
  
- int findMin(treeNode root)
+ int findMin(TreeNode root)
  {
      int minv = root.data;
      while (root.left != null)

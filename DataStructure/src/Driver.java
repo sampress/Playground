@@ -58,7 +58,7 @@ public class Driver {
    q.enqueue(2);
    System.out.println("Dequeued item is "+ q.dequeue().data);
 
-   binarySearchTree tree = new binarySearchTree();
+   BinarySearchTree tree = new BinarySearchTree();
    tree.insert(2);
    tree.insert(7);
    tree.insert( 9);

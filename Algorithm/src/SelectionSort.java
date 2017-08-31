@@ -1,5 +1,5 @@
 
-public class selectionSort implements ISort {
+public class SelectionSort implements ISort {
 
  public void Sort(int[] array)
   {

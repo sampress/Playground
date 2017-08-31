@@ -1,5 +1,5 @@
 
-public class binarySearch implements ISearch {
+public class BinarySearch implements ISearch {
 
  public int Search(int[] array, int x)
   {

@@ -1,5 +1,5 @@
 
-public class bubbleSort implements ISort{
+public class BubbleSort implements ISort{
 	
  public void Sort(int[] array)
   {
