@@ -3,8 +3,8 @@ import java.util.Iterator;
 
 class Graph
 {
-   int numVertices;   // No. of vertices
-   LinkedList<Integer> adjNodes[]; //Adjacency Lists
+   int numVertices;   
+   LinkedList<Integer> adjNodes[]; // Adjacency list
  
    Graph(int vertex)
    {
