@@ -28,7 +28,7 @@ class Graph
 
    void DFSRecur(int vertex, boolean visitedVertices[])
    {
-     // The current vertex is marked visited and then printed
+     // The current vertex is marked visitedVertices and then printed
      visitedVertices[vertex] = true;
      System.out.print(vertex+" ");
  
@@ -44,14 +44,14 @@ class Graph
  
    void DFS(int vertex)
    {
-     // Boolean array to keep track of visited vertices, mark all the vertices as not visited
+     // Boolean array to keep track of visitedVertices vertices, mark all the vertices as not visitedVertices
      boolean visitedVertices[] = new boolean[numVertices];
      DFSRecur(vertex, visitedVertices);
    }
  
    void BFS(int vertex)
    {
-     // Boolean array to keep track of visited vertices, mark all the vertices as not visited
+     // Boolean array to keep track of visitedVertices vertices, mark all the vertices as not visitedVertices
         boolean visitedVertices[] = new boolean[numVertices];
  
      // A temporary queue to put all the adjacent nodes from the source vertex
@@ -71,7 +71,7 @@ class Graph
        {
          int i = adjVertexList.next();
                 
-         // If the vertex has not been visited, add it to the queue
+         // If the vertex has not been visitedVertices, add it to the queue
          if(!visitedVertices[i])
          {
            visitedVertices[i] = true;
@@ -83,7 +83,7 @@ class Graph
     
     void topSort(int vertex, boolean visitedVertices[], Stack tempStack)
     {
-	  // Boolean array to keep track of visited vertices, mark all the vertices as not visited
+	  // Boolean array to keep track of visitedVertices vertices, mark all the vertices as not visitedVertices
 	  visitedVertices[vertex] = true;
 	  int i;
 
@@ -100,7 +100,6 @@ class Graph
 	  tempStack.push(new Integer(vertex));
    }
 
-  
    void topologicalSort()
    {
 	 // Temp stack for putting all the visitedVertices adjacent vertices in   
@@ -119,5 +118,48 @@ class Graph
 	 // Printing the stack to show the topological sort 
 	 while(!tempStack.isEmpty())
 	  System.out.print(tempStack.pop() + " ");
+   }
+   
+   Boolean directedCycleRecur(int vertex, Boolean visitedVertices[], Boolean revisitedVertices[])
+   {
+     if(visitedVertices[vertex] == false)
+     {
+       visitedVertices[vertex] = true;
+       revisitedVertices[vertex] = true;
+    
+       // Recursive call to store all the adjacent vertices of the vertex
+       Iterator<Integer> adjVertexList = adjNodes[vertex].listIterator();
+       while(adjVertexList.hasNext())
+       {
+         int i = adjVertexList.next();
+         if(!visitedVertices[i] && directedCycleRecur(i, visitedVertices, revisitedVertices))
+          return true;
+         else if (revisitedVertices[i])
+          return true;       
+        }       
+       }
+     
+       // Making the current vertex false, not part of the revisited array
+       revisitedVertices[vertex] = false;  
+       return false;
+   }
+    
+   Boolean directedCycleDetection()
+   {
+	 // Mark all the vertices as not visited
+     Boolean visitedVertices[] = new Boolean[numVertices];
+     Boolean revisitedVertices[] = new Boolean[numVertices];
+     for(int i = 0; i < numVertices; i++)
+     {
+       visitedVertices[i] = false;
+       revisitedVertices[i] = false;
+     }
+    
+     // Using the DFS approach to find a back edge in the graph
+     for(int i = 0; i < numVertices; i++)
+      if(directedCycleRecur(i, visitedVertices, revisitedVertices))
+       return true;
+    
+     return false;
    }
 }

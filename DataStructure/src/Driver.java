@@ -93,5 +93,10 @@ public class Driver {
    
    System.out.println("\nTopological Sort : ");
    g.topologicalSort();
+   
+   if(g.directedCycleDetection())
+	System.out.println("\nThis graph contains a cycle"); 
+    else
+     System.out.println("\nThis graph does not contain a cycle");
  }
 }
