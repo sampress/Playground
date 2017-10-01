@@ -74,5 +74,70 @@ public class Driver {
    tree.traversePostorder();
    System.out.println("\nDisplaying in Preorder : ");
    tree.traversePreorder();
+   
+   Graph g = new Graph(4);
+   
+   g.addEdge(0, 1);
+   g.addEdge(0, 2);
+   g.addEdge(1, 2);
+   g.addEdge(2, 0);
+   g.addEdge(2, 3);
+   g.addEdge(3, 3);
+
+   System.out.println("\nBFS : ");
+
+   g.BFS(2);
+   System.out.println("\nDFS : ");
+
+   g.DFS(2);
+   
+   System.out.println("\nTopological Sort : ");
+   g.topologicalSort();
+  
+   if(g.D(3,3))
+		System.out.println("\nThis graph  a cycle"); 
+	    else
+	     System.out.println("\nThis graph does   a cycle");
+   
+   if(g.isCyclicDirected())
+		System.out.println("\nThis graph contains a cycle"); 
+	    else
+	     System.out.println("\nThis graph does not contain a cycle");
+   
+   
+   // Create a graph given in the above diagram
+   Graph g3 = new Graph(4);
+   g.addEdge(0, 1);
+   g.addEdge(0, 2);
+   g.addEdge(1, 2);
+   g.addEdge(2, 0);
+   g.addEdge(2, 3);
+   g.addEdge(3, 3);
+
+   if(g3.isCyclicUndirected())
+       System.out.println("Graph contains cycle");
+   else
+	   System.out.println("Graph doesn't contain cycle");
+  
+   /*Graph g1 = new Graph(5);
+   g1.addEdgeUndirected(1, 0);
+   g1.addEdgeUndirected(0, 2);
+   g1.addEdgeUndirected(2, 0);
+   g1.addEdgeUndirected(0, 3);
+   g1.addEdgeUndirected(3, 4);
+   if (g1.isCyclicUndirected())
+       System.out.println("Graph contains cycle");
+   else
+       System.out.println("Graph doesn't contains cycle");
+  
+   Graph g2 = new Graph(3);
+   g2.addEdgeUndirected(0, 1);
+   g2.addEdgeUndirected(1, 2);
+   if (g2.isCyclicUndirected())
+       System.out.println("Graph contains cycle");
+   else
+       System.out.println("Graph doesn't contains cycle");*/
+   
+   
  }
 }
